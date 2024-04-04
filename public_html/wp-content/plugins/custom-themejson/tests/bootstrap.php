@@ -1,17 +1,15 @@
 <?php
-
+namespace WordCamp\WCPT\Tests;
 namespace WordCamp\CustomThemeJSON;
 
-defined( 'WPINC' ) || die();
+if ( 'cli' !== php_sapi_name() ) {
+	return;
+}
 
-/*
-Plugin Name: Custom Theme JSON
-Description: Allows organizers to develop their Custom Theme.json with whatever tools and environment they prefer.
-Version:     0.1
-Author:      WordCamp.org
-Author URI:  http://wordcamp.org
-License:     GPLv2 or later
-*/
+/**
+ * Load the plugins that we'll need to be active for the tests
+ */
+function manually_load_plugins() {
+}
 
-require_once __DIR__ . '/inc/theme-json.php';
-
+tests_add_filter( 'muplugins_loaded', __NAMESPACE__ . '\manually_load_plugins' );
